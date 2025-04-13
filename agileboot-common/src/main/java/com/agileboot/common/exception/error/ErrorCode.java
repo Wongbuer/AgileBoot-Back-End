@@ -204,6 +204,13 @@ public enum ErrorCode implements ErrorCodeInterface {
 
         USER_ADMIN_CAN_NOT_BE_MODIFY(10515, "管理员不允许做任何修改", "Business.USER_ADMIN_CAN_NOT_BE_MODIFY"),
 
+        // ---------------------------------- DOCKER_CLIENT -----------------------------------------------
+        DOCKER_CLIENT_NOT_FOUND(10516, "docker客户端未找到", "Business.DOCKER_CLIENT_NOT_FOUND"),
+
+        DOCKER_CLIENT_CREATE_FAILED(10517, "docker客户端创建失败", "Business.DOCKER_CLIENT_CREATE_FAILED"),
+
+        // ---------------------------------- DOCKER_INSTANCE -----------------------------------------------
+        DOCKER_INSTANCE_PING_FAILED(10518, "docker实例ping失败", "Business.DOCKER_INSTANCE_PING_FAILED"),
         ;
 
 

@@ -1,8 +1,5 @@
 package com.agileboot.infrastructure.mybatisplus;
 
-import cn.hutool.core.io.resource.ResourceUtil;
-import cn.hutool.json.JSON;
-import cn.hutool.json.JSONUtil;
 import com.agileboot.common.core.base.BaseController;
 import com.agileboot.common.core.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -21,9 +18,9 @@ import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
 import com.baomidou.mybatisplus.generator.fill.Column;
 import com.baomidou.mybatisplus.generator.fill.Property;
 import com.baomidou.mybatisplus.generator.keywords.MySqlKeyWordsHandler;
-import java.util.Collections;
 import lombok.Data;
-import org.yaml.snakeyaml.Yaml;
+
+import java.util.Collections;
 
 /**
  * @author valarchie
@@ -49,19 +46,19 @@ public class CodeGenerator {
         // 默认读取application-dev yml中的master数据库配置
 //        JSON ymlJson = JSONUtil.parse(new Yaml().load(ResourceUtil.getStream("application-dev.yml")));
 
-        String databaseUrl = "jdbc:mysql://localhost:33067/agileboot-pure";
+        String databaseUrl = "jdbc:mysql://localhost:3306/lab_docker";
         String username = "root";
-        String password = "12345";
+        String password = "123456";
 
         CodeGenerator generator = CodeGenerator.builder()
             .databaseUrl(databaseUrl)
             .username(username)
             .password(password)
-            .author("valarchie")
+            .author("Wongbuer")
             //生成的类 放在orm子模块下的/target/generated-code目录底下
             .module("/agileboot-orm/target/generated-code")
-            .parentPackage("com.agileboot")
-            .tableName("sys_menu")
+            .parentPackage("com.agileboot.domain")
+            .tableName("docker_image")
             // 决定是否继承基类
             .isExtendsFromBaseEntity(true)
             .build();
@@ -116,17 +113,17 @@ public class CodeGenerator {
         generator.packageConfig(builder -> builder
             // parent package name
             .parent(parentPackage)
-            .moduleName("orm")
-            .entity("entity")
-            .service("service")
-            .serviceImpl("service.impl")
-            .mapper("mapper")
-            .xml("mapper.xml")
+            .moduleName("instance")
+            .entity("db")
+            .service("db")
+            .serviceImpl("db")
+            .mapper("db")
+            .xml("mapper.instance")
             .controller("controller")
             .other("other")
             // define dir related to OutputFileType(entity,mapper,service,controller,mapper.xml)
             .pathInfo(Collections.singletonMap(OutputFile.mapperXml, System.getProperty("user.dir") + module
-                + "/src/main/resources/mapper/system/test"))
+                + "/src/main/resources/mapper/instance"))
             .build());
     }
 

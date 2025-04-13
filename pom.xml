@@ -47,6 +47,7 @@
         <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>2.5</maven.surefire.plugin.version>
         <maven.war.plugin.version>3.1.0</maven.war.plugin.version>
+        <docker-java.version>3.4.2</docker-java.version>
     </properties>
 
     <!-- 依赖声明 -->
@@ -263,6 +264,18 @@
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-annotations</artifactId>
                 <version>${io.swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.docker-java</groupId>
+                <artifactId>docker-java</artifactId>
+                <version>${docker-java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.docker-java</groupId>
+                <artifactId>docker-java-transport-httpclient5</artifactId>
+                <version>${docker-java.version}</version>
             </dependency>
 
         </dependencies>
